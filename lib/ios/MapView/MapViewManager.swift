@@ -5,6 +5,8 @@ class AMapViewManager: RCTViewManager {
   override func view() -> UIView {
     let view = MapView()
     view.delegate = view
+    view.showsUserLocation=true
+    view.userTrackingMode = .follow
     return view
   }
 
@@ -156,4 +158,9 @@ class MapView: MAMapView, MAMapViewDelegate {
   func mapView(_: MAMapView!, didUpdate userLocation: MAUserLocation!, updatingLocation _: Bool) {
     onLocation(userLocation.json)
   }
+  
+  func mapViewRequireLocationAuth(_ locationManager: CLLocationManager!) {
+    locationManager.requestAlwaysAuthorization()
+  }
+  
 }

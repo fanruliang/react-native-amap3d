@@ -73,7 +73,7 @@ extension Double {
 
 extension RCTConvert {
   @objc static func MAMapType(_ json: Any) -> MAMapType {
-    MAMapKit.MAMapType(rawValue: json as! NSInteger)!
+    AMapNaviKit.MAMapType(rawValue: json as! NSInteger)!
   }
 }
 
